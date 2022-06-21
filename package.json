@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/vinicrespi/api-rest-nodejs-tdd/issues"
   },
-  "homepage": "https://github.com/vinicrespi/api-rest-nodejs-tdd#readme"
+  "homepage": "https://github.com/vinicrespi/api-rest-nodejs-tdd#readme",
+  "devDependencies": {
+    "eslint": "^8.18.0"
+  }
 }
