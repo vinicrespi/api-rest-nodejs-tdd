@@ -20,6 +20,10 @@
   "homepage": "https://github.com/vinicrespi/api-rest-nodejs-tdd#readme",
   "devDependencies": {
     "eslint": "^8.18.0",
-    "jest": "^28.1.1"
+    "jest": "^28.1.1",
+    "supertest": "^6.2.3"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
   }
 }
