@@ -12,5 +12,10 @@ test('Deve listar todos os usuários', () => {
 });
 
 test('Deve inserir usuário com sucesso', () => {
-
+	return request(app).post('/users')
+		.send({ name: 'Walter Mitty', mail: 'walter@mail.com'})
+		.then((response) => {
+			expect(response.status).toBe(201);
+			expect(response.body.name).toBe('Walter Mitty');
+		});
 });
