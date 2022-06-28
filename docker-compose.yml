@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5435:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    environment:
+      ADMINER_DEFAULT_SERVER: db #nome do serviço em que está rodando a imagem do postgres
+    ports:
+      - '8082:8080'
+      
+volumes:
+  db:
+    driver: local
+    

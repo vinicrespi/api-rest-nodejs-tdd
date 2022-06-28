@@ -1,15 +1,11 @@
-module.exports = () => {
+module.exports = (app) => {
 	const findAll = (request, response) => {
-			const users = [
-				{
-					name: 'John Doe',
-					mail: 'john@mail.com'
-				},
-			];
-			response.status(200).json(users);
+			app.services.user.findAll()
+				.then(result => response.status(200).json(result));
 	};
-		const create = (request, response) => {
-			response.status(201).json(request.body);
+		const create = async (request, response) => {
+			const result = await app.services.user.save(request.body);
+			response.status(201).json(result[0]);
 	};
 
 	return { findAll, create };
