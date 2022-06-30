@@ -20,3 +20,12 @@ test('Deve inserir usuário com sucesso', () => {
 			expect(response.body.name).toBe('Walter Mitty');
 		});
 });
+
+test('Não deve inserir usuário sem nome', () => {
+	return request(app).post('/users')
+		.send({ mail: faker.internet.email(), passwd: '123456' })
+		.then((response) => {
+			expect(response.status).toBe(400);
+			expect(response.body.error).toBe('Nome é um atributo obrigatório');
+		});
+});
